@@ -9,6 +9,9 @@ function App() {
 
   const [accounts, setAccounts] = useState([]);
 
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
+
 
   const addMessage = () => {
     let _messages = [...messages];
@@ -30,6 +33,15 @@ function App() {
     }
   }
 
+  const formatTime = (date) => {
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+  };
+
+  const formatDate = (date) => {
+    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString([], options);
+  };
+
   useEffect(()=> {
     const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
@@ -40,6 +52,16 @@ function App() {
         phone.current.style.height = "92vh";
     }
   }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className='root'>
@@ -57,8 +79,10 @@ function App() {
                 </div>
             </div>
             <div className="time-wrap">
-                <h2>9:45</h2>
-                <p>Tuesday, September 12</p>
+                <h2>{formatTime(currentDateTime)}</h2>
+                <p>{currentDateTime.toLocaleDateString([], { weekday: 'long' })},{" "}
+                {currentDateTime.toLocaleDateString([], { month: 'long' })}{" "}
+                {currentDateTime.toLocaleDateString([], { day: 'numeric' })}</p>
             </div>
             <div className="notifications" ref={notCover}>
               <TransitionGroup className="item-list">
