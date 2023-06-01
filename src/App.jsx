@@ -44,12 +44,13 @@ function App() {
 
   useEffect(()=> {
     const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-    // Add class to HTML body
-    if (iOS) {
-        phone.current.style.height = "87vh";
-    } else {
-        phone.current.style.height = "92vh";
+    if(window.innerWidth < 1024){
+            // Add class to HTML body
+        if (iOS) {
+            phone.current.style.height = "87vh";
+        } else {
+            phone.current.style.height = "92vh";
+        }
     }
   }, [])
 
@@ -107,7 +108,7 @@ function App() {
             <div className="apps-wrap">
                 <div>
                     <a target='_blank' className='ylink' href="https://www.youtube.com/watch?app=desktop&v=qeMFqkcPYcg">
-                        everyboooooodys, lookin for $something
+                        everyboooooodys, lookin for $something <i className="fas fa-link"></i>
                     </a>
                 </div>
                 <div className="apps">

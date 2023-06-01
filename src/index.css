@@ -15,7 +15,6 @@ body{
   background-size: cover;
   width: 100%;
   height: 100vh;
-  max-width: 500px;
   position: relative;
 }
 
@@ -230,13 +229,8 @@ body{
   color: #fff;
 }
 
-
 @media screen and (min-width: 1024px) {
   .notifications{
-    height: 40vh;
-  }
-
-  .phone{
-    max-width: 400px;
+    max-width: 25em;
   }
 }
