@@ -229,3 +229,10 @@ body{
 .ylink:hover{
   color: #fff;
 }
+
+
+@media screen and (min-width: 1024px) {
+  .notifications{
+    height: 40vh;
+  }
+}
