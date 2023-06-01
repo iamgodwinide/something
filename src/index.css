@@ -235,4 +235,8 @@ body{
   .notifications{
     height: 40vh;
   }
+
+  .phone{
+    max-width: 400px;
+  }
 }
