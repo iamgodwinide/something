@@ -115,8 +115,9 @@ function App() {
                 </div>
                 <div className="apps">
                     <div className="item">
-                        <a href="t.me/smthngcoin" target="_blank" rel="noopener noreferrer"></a>
+                        <a href="t.me/smthngcoin" target="_blank" rel="noopener noreferrer">
                         <img src="/img/telegram.png" alt="" srcset="" />
+                        </a>
                     </div>
                     <div className="item">
                         <a target='_blank' href="https://twitter.com/smthngcoin" rel="noopener noreferrer">
