@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
+
 function App() {
   const [messages, setMessages] = useState([]);
-  const tone = useRef();
   const notCover = useRef()
   const phone = useRef()
 
@@ -19,8 +19,8 @@ function App() {
         Math.floor(Math.random()*3)+1
     );
     setMessages(_messages);
-    tone.current.currentTime = .3;
-    tone.current.play();
+    const sound = new Audio("/audio/tone2.mp3");
+    sound.play();
     notCover.current.scrollTop = 0;
   };
 
@@ -30,6 +30,8 @@ function App() {
             method: "eth_requestAccounts",
         });
         setAccounts(accounts);
+        const sound = new Audio("/audio/tone3.mp3");
+        sound.play();
     }
   }
 
@@ -41,6 +43,7 @@ function App() {
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
     return date.toLocaleDateString([], options);
   };
+
 
   useEffect(()=> {
     const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -66,7 +69,6 @@ function App() {
 
   return (
     <div className='root'>
-        <audio ref={tone} src="/audio/tone.mp3"></audio>
         <div className="phone" ref={phone}>
             <div className="top-not">
                 <div>
@@ -113,10 +115,11 @@ function App() {
                 </div>
                 <div className="apps">
                     <div className="item">
+                        <a href="t.me/smthngcoin" target="_blank" rel="noopener noreferrer"></a>
                         <img src="/img/telegram.png" alt="" srcset="" />
                     </div>
                     <div className="item">
-                        <a target='_blank' href="https://twitter.com/smthngcoin">
+                        <a target='_blank' href="https://twitter.com/smthngcoin" rel="noopener noreferrer">
                         <img src="/img/twitter.png" alt="" srcset="" />
                         </a>
                     </div>
