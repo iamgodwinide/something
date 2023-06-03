@@ -25,6 +25,11 @@
                 "internalType": "address",
                 "name": "_weth",
                 "type": "address"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_merkleRoot",
+                "type": "bytes32"
             }
         ],
         "stateMutability": "nonpayable",
@@ -260,6 +265,13 @@
     },
     {
         "inputs": [],
+        "name": "activateClaim",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "burnTokens",
         "outputs": [
             {
@@ -286,16 +298,78 @@
     },
     {
         "inputs": [],
-        "name": "cancelSale",
+        "name": "claimActivated",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "claimEnd",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "claimStart",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bytes32[]",
+                "name": "merkleProof",
+                "type": "bytes32[]"
+            }
+        ],
+        "name": "claimTokens",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "claimTokens",
-        "outputs": [],
-        "stateMutability": "nonpayable",
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "claimed",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -393,21 +467,6 @@
                 "internalType": "uint256",
                 "name": "_hardCap",
                 "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_softCap",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_maxBuy",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_minBuy",
-                "type": "uint256"
             }
         ],
         "name": "initSale",
@@ -456,12 +515,12 @@
     },
     {
         "inputs": [],
-        "name": "isRefund",
+        "name": "merkleRoot",
         "outputs": [
             {
-                "internalType": "bool",
+                "internalType": "bytes32",
                 "name": "",
-                "type": "bool"
+                "type": "bytes32"
             }
         ],
         "stateMutability": "view",
@@ -531,21 +590,6 @@
                 "internalType": "uint256",
                 "name": "hardCap",
                 "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "softCap",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "maxBuy",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "minBuy",
-                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -553,14 +597,14 @@
     },
     {
         "inputs": [],
-        "name": "refund",
+        "name": "renounceOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
     },
     {
         "inputs": [],
-        "name": "renounceOwnership",
+        "name": "setisFinish",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -641,13 +685,6 @@
             }
         ],
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "withrawTokens",
-        "outputs": [],
-        "stateMutability": "nonpayable",
         "type": "function"
     },
     {

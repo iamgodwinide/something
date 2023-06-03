@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
+import App2 from './App2';
 
 const options = {
   position: positions.TOP_RIGHT,
@@ -18,7 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <AlertProvider template={AlertTemplate} {...options}>
-     <App/>
+     <App2/>
    </AlertProvider>
 );
 

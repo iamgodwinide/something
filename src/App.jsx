@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Claim from './components/Claim/Claim';
 
 
 function App() {
@@ -11,20 +12,21 @@ function App() {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
-
-
   const addMessage = () => {
+    notCover.current.scrollTop = notCover.current.scrollHeight + 100;
     let _messages = [...messages];
-    _messages.unshift(
+    _messages.push(
         Math.floor(Math.random()*3)+1
     );
     setMessages(_messages);
     const sound = new Audio("/audio/tone2.mp3");
     sound.play();
-    notCover.current.scrollTop = 0;
+    setTimeout(()=> {
+        notCover.current.scrollTop = notCover.current.scrollHeight + 100;
+    },50)
   };
 
-  async function connectAccount() {
+  const connectAccount = async () => {
     if (window.ethereum) {
         const accounts = await window.ethereum.request({
             method: "eth_requestAccounts",
@@ -33,6 +35,11 @@ function App() {
         const sound = new Audio("/audio/tone3.mp3");
         sound.play();
     }
+  }
+
+
+  const claim = () => {
+
   }
 
   const formatTime = (date) => {
@@ -108,6 +115,11 @@ function App() {
               </TransitionGroup>
             </div>
             <div className="apps-wrap">
+                {
+                    accounts[0]
+                    &&
+                    <Claim accounts={accounts} setAccounts={setAccounts}/>
+                }
                 <div>
                     <a target='_blank' className='ylink' href="https://www.youtube.com/watch?app=desktop&v=qeMFqkcPYcg">
                         everyboooooodys, lookin for $something <i className="fas fa-link"></i>
@@ -157,11 +169,11 @@ function App() {
                         }
                     </div>
                 </div>
-                <div className="dots">
+                {/* <div className="dots">
                     <div></div>
                     <div></div>
                     <div></div>
-                </div>
+                </div> */}
             </div>
         </div>
     </div>

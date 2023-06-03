@@ -1,0 +1,99 @@
+
+  
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+
+  .root{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  p{
+    margin-top: 2em;
+  }
+
+  .falling-image {
+    position: absolute;
+    top: -50px; /* Adjust the initial top position as needed */
+    left: calc(50% - 25px); /* Adjust the initial left position as needed */
+    width: 50px; /* Adjust the size of the falling images as needed */
+    height: 50px; /* Adjust the size of the falling images as needed */
+    background-image: url('./img/question.png'); /* Replace with the image URL */
+    background-size: cover;
+    background-position: center;
+    animation: falling-animation 4s infinite linear;
+  }
+  
+  @keyframes falling-animation {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(calc(-50% + var(--random-x)), 100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes randomize {
+    0%, 100% {
+      --random-x: calc(-50px + random(100px));
+    }
+  }
+  
+  @keyframes randomize-delay {
+    0%, 100% {
+      --random-delay: random(4s);
+    }
+  }
+  
+  @function random($max) {
+    @return 1s * random() * $max;
+  }
+  
+  .falling-image:nth-child(1) {
+    --random-x: calc(-50px + random(100px));
+    --random-delay: random(4s);
+    animation: falling-animation var(--random-delay) infinite linear;
+    animation-name: falling-animation, randomize, randomize-delay;
+  }
+  
+  .falling-image:nth-child(2) {
+    --random-x: calc(-50px + random(100px));
+    --random-delay: random(4s);
+    animation: falling-animation var(--random-delay) infinite linear;
+    animation-name: falling-animation, randomize, randomize-delay;
+  }
+  
+  .falling-image:nth-child(3) {
+    --random-x: calc(-50px + random(100px));
+    --random-delay: random(4s);
+    animation: falling-animation var(--random-delay) infinite linear;
+    animation-name: falling-animation, randomize, randomize-delay;
+  }
+  
+  /* Repeat the .falling-image styling for additional images as needed */
+  
+  .imagea {
+    animation: spring-animation 2s infinite;
+    transform-origin: center;
+    width: 5em !important;
+    height: 10em;
+  }
+  
+  @keyframes spring-animation {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
