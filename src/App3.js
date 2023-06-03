@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 function App3() {
-    const date = new Date("June 3, 2023 19:00:00 EST")
+    const date = new Date("June 3, 2023 19:00:00 GMT-4")
     const calculateRemainingTime = () => {
         const now = new Date().getTime();
         const targetTime = date.getTime();
