@@ -3,6 +3,7 @@ import image from './img/question.png'
 import './index2.css'
 
 const App2 = () => {
+
   const [started, setStarted] = useState(false);
   const canvasRef = useRef(null);
   const images = ['./img/question.png', './img/question.png', './img/question.png' ]; // Replace with your image URLs
@@ -28,10 +29,12 @@ const App2 = () => {
   }
 
   // Call the playMelody function to start playing the melody
-  playMelody();
   
   const handleClick = () => {
     setStarted(true);
+    const audio = new Audio("/audio/tone2.mp3");
+    audio.currentTime = .07;
+    audio.play();
     playMelody()
 }
 
@@ -123,6 +126,8 @@ const App2 = () => {
   return(
     <div className='root'>
         <canvas
+                    onClick={handleClick}
+
         ref={canvasRef} style={{ 
             opacity: started ? 1 : 0,
             position: 'fixed', top: 0, left: 0 }} />
