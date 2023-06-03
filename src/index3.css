@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+p{
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./img/background.png);
+    background-position: center;
+    background-size: cover;
+    padding: 0 8%;
+    position: relative;
+}
+
+.main a.brand{
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    padding-top: 2em;
+    display: block;
+    text-transform: uppercase;
+}
+
+.content{
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+.content h1{
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.content h1 span{
+    color: red;
+}
+
+.content button{
+    padding: .5em 3em;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 1em 0;
+}
+
+.content button img{
+    width: 1.5em;
+    margin-left: .5em;
+}
+
+.launch-timer{
+    display: flex;
+    align-items: center;
+}
+
+.launch-timer div{
+    flex-basis: 10em;
+}
+
+.launch-timer h2{
+    font-size: 3em;
+    margin-bottom: 0;
+    margin-top: 1em;
+}
+
+.rocket{
+    width: 15em;
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    animation: rocket 4s linear infinite;
+}
+
+@keyframes rocket{
+    0%{
+        bottom: 0;
+        opacity: 0;
+    }
+    100%{
+        bottom: 105%;
+        opacity: 1;
+    }
+}
